@@ -24,19 +24,19 @@ services:
       docker-entrypoint.sh postgres
       "
 
-  # api:
-  #   build: ./api
-  #   container_name: api
-  #   env_file: .env
-  #   environment:
-  #     - DATABASE_URL=postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}
-  #   ports:
-  #     - "${SRV_PORT}:3000"
-  #   depends_on:
-  #     db:
-  #       condition: service_healthy
-  #   command: sh -c "./wait-for-db.sh && ./api"
-  #   restart: unless-stopped
+  api:
+    build: ./api
+    container_name: api
+    env_file: .env
+    environment:
+      - DATABASE_URL=postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}
+    ports:
+      - "${SRV_PORT}:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+    command: sh -c "./wait-for-db.sh && ./api"
+    restart: unless-stopped
 
 volumes:
   db_data:

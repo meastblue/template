@@ -2,7 +2,6 @@ use app::server::Server;
 
 mod app;
 mod tasks;
-mod users;
 
 #[tokio::main]
 async fn main() {

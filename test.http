@@ -14,3 +14,49 @@ Content-Type: application/json
   "email": "john@doe.com",
   "password": "password"
 }
+
+###
+get http://localhost:8080/api/tasks
+
+###
+get http://localhost:8080/api/tasks/bd7dc67b-c8f9-4900-ad27-77b0986e2c58
+
+###
+
+post http://localhost:8080/api/tasks
+Content-Type: application/json
+
+{
+  "title": "Task 1",
+  "description": "Description 1"
+}
+
+###
+
+patch http://localhost:8080/api/tasks/bd7dc67b-c8f9-4900-ad27-77b0986e2c58
+Content-Type: application/json
+
+{
+  "title": "Task 1",
+  "description": "Description 1",
+  "completed": false
+}
+
+###
+patch http://localhost:8080/api/tasks/bd7dc67b-c8f9-4900-ad27-77b0986e2c58
+Content-Type: application/json
+
+{
+  "title": "Apprendre Rust",
+  "description": "J'adore Rust",
+  "completed": false
+}
+
+###
+delete http://localhost:8080/api/tasks/bd7dc67b-c8f9-4900-ad27-77b0986e2c58
+
+###
+patch http://localhost:8080/api/tasks/bd7dc67b-c8f9-4900-ad27-77b0986e2c58/restore
+
+###
+delete http://localhost:8080/api/tasks/bd7dc67b-c8f9-4900-ad27-77b0986e2c58/destroy
