@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:bullseye
+    container_name: db
+    env_file: .env
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "${DB_PORT}:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    command: >
+      bash -c "
+      echo 'host all all 0.0.0.0/0 md5' >> /var/lib/postgresql/data/pg_hba.conf &&
+      docker-entrypoint.sh postgres
+      "
+
+  # api:
+  #   build: ./api
+  #   container_name: api
+  #   env_file: .env
+  #   environment:
+  #     - DATABASE_URL=postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}
+  #   ports:
+  #     - "${SRV_PORT}:3000"
+  #   depends_on:
+  #     db:
+  #       condition: service_healthy
+  #   command: sh -c "./wait-for-db.sh && ./api"
+  #   restart: unless-stopped
+
+volumes:
+  db_data:
+    name: todo_data

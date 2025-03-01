@@ -1,0 +1,31 @@
+# Rust
+/target/
+/Cargo.lock
+
+# Docker
+*.log
+*.pid
+*.swp
+.docker/
+
+# VSCode
+.vscode/
+
+# JetBrains
+.idea/
+
+# macOS
+.DS_Store
+
+# Environment files
+.env
+.env.local
+.env.dev
+.env.uat
+.env.int
+.env.ppr
+.env.prod
+
+# Miscellaneous
+*.bak
+*.tmp

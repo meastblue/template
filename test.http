@@ -1,0 +1,16 @@
+get http://localhost:8080/api
+
+###
+
+get http://localhost:8080/api/users
+
+###
+
+post http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "username": "John Doe",
+  "email": "john@doe.com",
+  "password": "password"
+}
