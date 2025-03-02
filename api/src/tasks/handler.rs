@@ -21,7 +21,6 @@ impl TaskHandler {
         State(pool): State<PgPool>,
         Path(id): Path<String>,
     ) -> Result<Json<Task>, String> {
-        println!("id: {}", id);
         let id = uuid::Uuid::parse_str(&id).map_err(|e| e.to_string())?;
         let task = Task::get(&pool, id).await.map_err(|e| e.to_string())?;
 

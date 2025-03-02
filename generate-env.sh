@@ -9,6 +9,12 @@ fi
 ENVIRONMENT=$1
 ENV_FILE=".env.$ENVIRONMENT"
 
+# Ignorer .env.example
+if [ "$ENV_FILE" == ".env.example" ]; then
+  echo "Error: .env.example is not a valid environment file!"
+  exit 1
+fi
+
 if [ ! -f "$ENV_FILE" ]; then
   echo "Error: File $ENV_FILE not found!"
   exit 1

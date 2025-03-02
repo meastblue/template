@@ -1,39 +1,27 @@
-get http://localhost:8080/api
+get https://localhost/api
+
 
 ###
 
-get http://localhost:8080/api/users
+get https://localhost/api/tasks
 
 ###
 
-post http://localhost:8080/api/users
+get https://localhost/api/tasks/f8e2c83c-70c1-420b-b346-f88e01ada527
+
+###
+
+post https://localhost/api/tasks
 Content-Type: application/json
 
 {
-  "username": "John Doe",
-  "email": "john@doe.com",
-  "password": "password"
-}
-
-###
-get http://localhost:8080/api/tasks
-
-###
-get http://localhost:8080/api/tasks/bd7dc67b-c8f9-4900-ad27-77b0986e2c58
-
-###
-
-post http://localhost:8080/api/tasks
-Content-Type: application/json
-
-{
-  "title": "Task 1",
-  "description": "Description 1"
+  "title": "Apprendre Rust",
+  "description": "Apprendre Rust pour faire des applications performantes"
 }
 
 ###
 
-patch http://localhost:8080/api/tasks/bd7dc67b-c8f9-4900-ad27-77b0986e2c58
+patch https://localhost/api/tasks/f8e2c83c-70c1-420b-b346-f88e01ada527
 Content-Type: application/json
 
 {
@@ -43,7 +31,7 @@ Content-Type: application/json
 }
 
 ###
-patch http://localhost:8080/api/tasks/bd7dc67b-c8f9-4900-ad27-77b0986e2c58
+patch https://localhost/api/tasks/f8e2c83c-70c1-420b-b346-f88e01ada527
 Content-Type: application/json
 
 {
@@ -53,10 +41,10 @@ Content-Type: application/json
 }
 
 ###
-delete http://localhost:8080/api/tasks/bd7dc67b-c8f9-4900-ad27-77b0986e2c58
+delete https://localhost/api/tasks/f8e2c83c-70c1-420b-b346-f88e01ada527
 
 ###
-patch http://localhost:8080/api/tasks/bd7dc67b-c8f9-4900-ad27-77b0986e2c58/restore
+patch https://localhost/api/tasks/f8e2c83c-70c1-420b-b346-f88e01ada527/restore
 
 ###
-delete http://localhost:8080/api/tasks/bd7dc67b-c8f9-4900-ad27-77b0986e2c58/destroy
+delete https://localhost/api/tasks/f8e2c83c-70c1-420b-b346-f88e01ada527/destroy
